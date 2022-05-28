@@ -6,3 +6,19 @@
     align-items: center;
     justify-items: center;
 }
+
+.heading {
+    display: flex;
+    align-items: end;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+.heading h2, form {
+    display: inline-block;
+}
+
+form label {
+    margin: 0 0.3rem;
+}

@@ -12,7 +12,18 @@ const MovieGrid: FunctionComponent<Props> = () => {
         <MovieIcon image={el.image} imageAlt={el.imageAlt} title={el.title} />
     );
 
-    return <div className="movie-icon-grid">{movies.map(movieItem)}</div>;
+    return (
+        <>
+            <div className="heading">
+                <h2>Top Movies</h2>
+                <form>
+                    <label htmlFor="search">Search</label>
+                    <input id="search" name="search" type="text" />
+                </form>
+            </div>
+            <div className="movie-icon-grid">{movies.map(movieItem)}</div>
+        </>
+    );
 };
 
 export default MovieGrid;
