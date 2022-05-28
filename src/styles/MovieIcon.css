@@ -1,0 +1,31 @@
+.movie-icon {
+    position: relative;
+    width: 150px;
+}
+
+.movie-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.movie-icon .icon-overlay {
+    background-color: rgba(100, 100, 100, 0.8);
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    transition: 0.12s ease-in;
+}
+
+.movie-icon .icon-overlay p {
+    color: white;
+}
+
+.movie-icon .icon-overlay:hover {
+    opacity: 1;
+    cursor: pointer;
+}
