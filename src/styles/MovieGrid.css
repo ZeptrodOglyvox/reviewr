@@ -9,7 +9,7 @@
 
 .heading {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     text-align: center;
     justify-content: space-between;
     padding: 0 3rem;

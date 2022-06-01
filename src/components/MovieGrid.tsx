@@ -1,20 +1,21 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import MovieIcon, { type MovieIconProps } from "./MovieIcon";
-import movies from "../data/movies";
 import "../styles/MovieGrid.css";
 
-interface OwnProps {}
+interface OwnProps {
+    movies: any[]; // FIXME: Update with the model type
+}
 
-type Props = OwnProps;
+type MovieGridProps = OwnProps;
 
-const MovieGrid: FunctionComponent<Props> = () => {
+const MovieGrid: FunctionComponent<MovieGridProps> = ({ movies }) => {
     const [query, setQuery] = useState("");
 
-    const filteredMovies = movies
-        .filter((m) => m.title.match(new RegExp(query.trim(), "i")))
-        .map((m) => (
-            <MovieIcon image={m.image} imageAlt={m.imageAlt} title={m.title} />
-        ));
+    const filteredMovieIcon = movies
+        .filter((m: MovieIconProps) =>
+            m.title.match(new RegExp(query.trim(), "i")),
+        )
+        .map(MovieIcon);
 
     return (
         <>
@@ -34,7 +35,7 @@ const MovieGrid: FunctionComponent<Props> = () => {
                     />
                 </form>
             </div>
-            <div className="movie-icon-grid">{filteredMovies}</div>
+            <div className="movie-icon-grid">{filteredMovieIcon}</div>
         </>
     );
 };

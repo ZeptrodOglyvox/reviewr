@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import "./App.css";
-import defaultConfig from "./config";
 import MovieGrid from "./components/MovieGrid";
+import useApp from "./hooks/App.hooks";
 
 type AppProps = {};
 
 const App: React.FC<AppProps> = () => {
-    const [title] = useState(defaultConfig.title);
-    useEffect(() => {
-        document.title = title;
-    }, [title]);
+    const { title, movies } = useApp();
 
     return (
         <div>
-            <h1>{defaultConfig.title}</h1>
-            <MovieGrid></MovieGrid>
+            <h1>{title}</h1>
+            <MovieGrid movies={movies} />
         </div>
     );
 };

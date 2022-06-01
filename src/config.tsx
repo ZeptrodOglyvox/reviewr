@@ -1,9 +1,11 @@
 export type Config = {
-    title: string
+    title: string;
+    backendURL: string;
 };
 
 const defaultConfig: Config = {
-    title: "Reviewr"
+    title: "Reviewr",
+    backendURL: "http://localhost",
 };
 
-export default defaultConfig
+export default defaultConfig;
