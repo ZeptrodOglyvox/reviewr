@@ -1,11 +1,11 @@
-import dotenv from "dotenv";
-import express, { Application } from "express";
-import moviesRouter from "./routes/movies.route";
 import cors from "cors";
+import express from "express";
 
-dotenv.config();
+import config from "./config";
+import { get_collection } from "./db";
+import moviesRouter from "./routes/movies.route";
 
-const app: Application = express();
+const app = express();
 
 app.use(express.json());
 
@@ -17,6 +17,20 @@ app.get("/", (req, res) => {
 
 app.use("/movies", moviesRouter);
 
-app.listen(process.env.APP_PORT || 5000, (): void => {
+app.get("/testmongo", async (req, res, next) => {
+    try {
+        const collection = await get_collection("test");
+        await collection.updateOne(
+            { _id: 0 },
+            { $push: { visits: new Date() } },
+            { upsert: true },
+        );
+        res.json(await collection.findOne({ _id: 0 }));
+    } catch (err) {
+        next(err);
+    }
+});
+
+app.listen(config.PORT, (): void => {
     console.log(`listening on http://localhost:5000`);
 });

@@ -20,7 +20,7 @@ const MovieGrid: FunctionComponent<MovieGridProps> = ({ movies }) => {
     return (
         <>
             <div className="heading">
-                <h2>Top Movies</h2>
+                <h2>Top Movies ({movies.length})</h2>
                 <form>
                     <label htmlFor="search">Search</label>
                     <input
