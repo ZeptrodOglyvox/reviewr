@@ -5,10 +5,10 @@ import config from "./config";
 
 let db: Db | undefined = undefined;
 
-const get_db = async (): Promise<Db> => {
+export async function getDB(): Promise<Db> {
     // FIXME: Time out connection and check to reconnect.
     if (db === undefined) {
-        await MongoClient.connect(config.MONGO_URI, {
+        MongoClient.connect(config.MONGO_URI, {
             sslKey: config.DB_CERT,
             sslCert: config.DB_CERT,
             serverApi: ServerApiVersion.v1,
@@ -23,13 +23,11 @@ const get_db = async (): Promise<Db> => {
     }
 
     return db!;
-};
+}
 
-export const get_collection = async (
+export const getCollection = async (
     collection: string,
 ): Promise<Collection> => {
-    const db = await get_db();
+    const db = await getDB();
     return db.collection(collection);
 };
-
-export default get_db;
