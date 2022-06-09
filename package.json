@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "serve": "nodemon backend/app.ts",
     "seed": "ts-node backend/tools/seed_db.ts",
-    "test-back": "jest"
+    "test-back": "jest",
+    "lint": "eslint . --ext .ts"
   },
   "eslintConfig": {
     "extends": [

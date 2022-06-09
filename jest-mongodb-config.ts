@@ -1,4 +1,4 @@
-export default {
+const config = {
     mongodbMemoryServerOptions: {
         binary: {
             version: "5.0.8",
@@ -8,3 +8,5 @@ export default {
         instance: {},
     },
 };
+
+export default config;
