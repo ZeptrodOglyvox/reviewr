@@ -9,4 +9,3 @@ jobs:
         with:
           node-version: '18.1.0'
       - run: node --version
-  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
