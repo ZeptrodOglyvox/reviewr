@@ -1,22 +1,17 @@
 name: check
 on: [push]
 jobs:
-  setup:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '18.1.0'
-      - run: npm install
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm run lint
+      - name: install dependencies
+        run: npm ci
+      - name: lint
+        run: npm run lint
+      - name: test backend
+        run: npm test-back
 
-  test:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm run test-back
