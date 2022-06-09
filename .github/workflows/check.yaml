@@ -13,5 +13,5 @@ jobs:
       - name: lint
         run: npm run lint
       - name: test backend
-        run: npm test-back
+        run: npm run test-back --max-workers ${{ steps.cpu-cores.outputs.count }}
 
