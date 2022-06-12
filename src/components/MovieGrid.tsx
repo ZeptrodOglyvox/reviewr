@@ -11,16 +11,26 @@ type MovieGridProps = OwnProps;
 const MovieGrid: FunctionComponent<MovieGridProps> = ({ movies }) => {
     const [query, setQuery] = useState("");
 
-    const filteredMovieIcon = movies
-        .filter((m: MovieIconProps) =>
-            m.title.match(new RegExp(query.trim(), "i")),
-        )
-        .map(MovieIcon);
+    const movieIconGrid = (
+        <div className="movie-icon-grid" data-testid="movie-icon-grid">
+            {movies
+                .filter((m: MovieIconProps) =>
+                    m.title.match(new RegExp(query.trim(), "i")),
+                )
+                .map(MovieIcon)}
+        </div>
+    );
+
+    const emptyMessage = (
+        <div className="error" data-testid="empty-message-id" style={{}}>
+            "Ok people, nothing to see here, move along..."
+        </div>
+    );
 
     return (
         <>
             <div className="heading">
-                <h2>Top Movies ({movies.length})</h2>
+                <h2>Top Movies ({movies?.length})</h2>
                 <form>
                     <label htmlFor="search">Search</label>
                     <input
@@ -35,7 +45,7 @@ const MovieGrid: FunctionComponent<MovieGridProps> = ({ movies }) => {
                     />
                 </form>
             </div>
-            <div className="movie-icon-grid">{filteredMovieIcon}</div>
+            {movies?.length ? movieIconGrid : emptyMessage}
         </>
     );
 };

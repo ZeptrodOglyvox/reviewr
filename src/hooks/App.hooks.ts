@@ -17,11 +17,16 @@ const useApp = (): AppHook => {
     const [movies, setMovies] = useState([]);
     useEffect(() => {
         const fetchMovies = async () => {
-            const response = await window.fetch(
-                `${defaultConfig.backendURL}:5000/movies`,
-            );
-            const movies = await response.json();
-            setMovies(movies);
+            try {
+                const response = await window.fetch(
+                    `${defaultConfig.backendURL}:5000/movies`,
+                );
+                const movies = await response.json();
+                setMovies(movies);
+            } catch (err: any) {
+                console.log("fetching movies: " + err.message);
+                setMovies([]);
+            }
         };
         fetchMovies();
     }, []);

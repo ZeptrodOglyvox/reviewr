@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/cors": "^2.8.12",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "serve": "nodemon backend/app.ts",
     "seed": "ts-node backend/tools/seed_db.ts",
-    "test-back": "jest",
+    "test-back": "jest backend/",
     "lint": "eslint . --ext .ts"
   },
   "eslintConfig": {
@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^3.0.1",
+    "@testing-library/react": "^13.3.0",
     "@types/express": "^4.17.13",
     "@types/jest": "^28.1.1",
     "@types/node": "^17.0.36",

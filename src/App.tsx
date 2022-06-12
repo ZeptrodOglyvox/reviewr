@@ -1,6 +1,5 @@
 import React from "react";
 
-import "./App.css";
 import MovieGrid from "./components/MovieGrid";
 import useApp from "./hooks/App.hooks";
 
