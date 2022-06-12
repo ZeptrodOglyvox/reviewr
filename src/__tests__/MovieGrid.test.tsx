@@ -1,13 +1,15 @@
-import React from "react";
-import { act, render, screen } from "@testing-library/react";
-import MovieGrid from "../components/MovieGrid";
 import "@testing-library/jest-dom";
+import React from "react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
+
+import MovieGrid from "../components/MovieGrid";
 
 test("empty list", async () => {
-    render(<MovieGrid movies={[]} />);
-    expect(await screen.findByTestId("empty-message-id")).toHaveTextContent(
-        "Ok people, nothing to see here, move along...",
-    );
+    const { asFragment } = render(<MovieGrid movies={[]} />);
+
+    await act(async () => {
+        expect(await asFragment()).toMatchSnapshot();
+    });
 });
 
 test("happy path", async () => {
@@ -31,4 +33,13 @@ test("happy path", async () => {
     await act(async () => {
         expect(await asFragment()).toMatchSnapshot();
     });
+});
+
+test("should update search", async () => {
+    render(<MovieGrid movies={[]} />);
+    const searchElem = screen.getByTestId("search-id");
+    fireEvent.change(searchElem, {
+        target: { value: "movie 1" },
+    });
+    expect(searchElem).toHaveValue("movie 1");
 });

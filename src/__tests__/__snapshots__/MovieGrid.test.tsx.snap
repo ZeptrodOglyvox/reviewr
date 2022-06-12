@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`empty list 1`] = `
+<DocumentFragment>
+  <div
+    class="heading"
+  >
+    <h2>
+      Top Movies (0)
+    </h2>
+    <form>
+      <label
+        for="search"
+      >
+        Search
+      </label>
+      <input
+        data-testid="search-id"
+        id="search"
+        name="search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    class="error"
+    data-testid="empty-message-id"
+  >
+    "Ok people, nothing to see here, move along..."
+  </div>
+</DocumentFragment>
+`;
+
 exports[`happy path 1`] = `
 <DocumentFragment>
   <div
@@ -15,6 +47,7 @@ exports[`happy path 1`] = `
         Search
       </label>
       <input
+        data-testid="search-id"
         id="search"
         name="search"
         type="text"

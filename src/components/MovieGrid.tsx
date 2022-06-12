@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from "react";
+
 import MovieIcon, { type MovieIconProps } from "./MovieIcon";
 import "../styles/MovieGrid.css";
 
@@ -35,6 +36,7 @@ const MovieGrid: FunctionComponent<MovieGridProps> = ({ movies }) => {
                     <label htmlFor="search">Search</label>
                     <input
                         id="search"
+                        data-testid="search-id"
                         name="search"
                         type="text"
                         value={query}
