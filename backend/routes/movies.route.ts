@@ -10,6 +10,7 @@ moviesRouter.get("/", async (req, res, next) => {
         next(err);
     }
 });
+
 moviesRouter.use(((err: Error, req, res, next) => {
     next(new Error("Movies error: " + err.message));
 }) as ErrorRequestHandler);

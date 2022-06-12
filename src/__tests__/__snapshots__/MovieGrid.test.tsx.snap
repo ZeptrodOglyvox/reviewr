@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`happy path 1`] = `
+<DocumentFragment>
+  <div
+    class="heading"
+  >
+    <h2>
+      Top Movies (2)
+    </h2>
+    <form>
+      <label
+        for="search"
+      >
+        Search
+      </label>
+      <input
+        id="search"
+        name="search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    class="movie-icon-grid"
+    data-testid="movie-icon-grid"
+  >
+    <div
+      class="movie-icon"
+    >
+      <a
+        class="icon-overlay"
+        href="#"
+      >
+        <p>
+          movie 1
+        </p>
+      </a>
+      <img
+        src="http://img.com"
+      />
+    </div>
+    <div
+      class="movie-icon"
+    >
+      <a
+        class="icon-overlay"
+        href="#"
+      >
+        <p>
+          movie 2
+        </p>
+      </a>
+      <img
+        src="http://img.com"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

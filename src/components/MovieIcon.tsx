@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import "../styles/MovieIcon.css";
 
 interface OwnProps {
+    _id: string;
     image: string;
     imageAlt: string;
     title: string;
@@ -10,12 +11,13 @@ interface OwnProps {
 export type MovieIconProps = OwnProps;
 
 const MovieIcon: FunctionComponent<MovieIconProps> = ({
+    _id,
     image,
     imageAlt,
     title,
 }) => {
     return (
-        <div className="movie-icon">
+        <div className="movie-icon" key={_id}>
             <a href="#" className="icon-overlay">
                 <p>{title}</p>
             </a>
